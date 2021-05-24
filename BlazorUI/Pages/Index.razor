@@ -1,0 +1,31 @@
+﻿@page "/"
+
+@if (!string.IsNullOrEmpty(_labels))
+{
+    <h3>@_labels</h3>
+}
+
+<img src="@_imageUrl"
+     crossorigin="anonymous"
+     @ref="Refer"
+     alt="" />
+
+@if (ResultUrl != null)
+{
+    <img class="ml-4" src="@ResultUrl" alt="" />
+}
+
+<br />
+
+@if (_imageUrl != null)
+{
+    <button class="btn btn-success"
+            style="margin-top: 20px; margin-bottom: 20px;"
+            @onclick="Recognize">
+        Ok
+    </button>
+}
+
+<div>
+    <ImageUpload ImgUrl="@_imageUrl" OnChange="AssignImageUrl"></ImageUpload>
+</div>
